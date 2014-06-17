@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Trond Klakken">
+
+  <title>Web components</title>
+
+  <link rel="stylesheet" href="./css/reveal.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="css/theme/bekk.css" id="theme">
+
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/monokai-sublime.css">
+
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+
+  <div class="reveal">
+
+    <div class="slides">
+
+      <section>
+        <h2>Web Components</h2>
+        <p></p>
+        <p>Trond Klakken / <a href="http://twitter.com/trondkla">@trondkla</a></p>
+        <p><a href="http://open.bekk.no">open.bekk.no</a></p>
+
+        <aside class="notes">
+
+        </aside>
+      </section>
+
+
+      <section>
+        <code>
+          <user-profile model="{id: 5, name: 'Trond', email: 'trond@klakken.com'}" />
+        </code>
+      </section>
+
+      <section>
+        <h2>Takk for meg!</h2>
+      </section>
+
+    </div>
+
+  </div>
+
+  <script src="./lib/js/head.min.js"></script>
+  <script src="./js/reveal.min.js"></script>
+  <script type="text/javascript" src="./vendor/prefixfree.min.js"></script>
+
+  <script>
+
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+transition: 'zoom', //Default - None - Fade - Slide - Concave - Zoom
+dependencies: [
+{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; }},
+{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+]
+});
+
+  </script>
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+
+</body>
+</html>

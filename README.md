@@ -1,4 +1,4 @@
-web-components-presentation
-===========================
+flex-vs-float
+=============
 
-Presentation about web components
+A presentation compairing flex and float in css
