@@ -1,3 +1,7 @@
 .resize {
   resize: both;
 }
+
+.reveal pre {
+	box-shadow: none;
+}

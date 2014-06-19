@@ -10,12 +10,12 @@
   <link rel="stylesheet" href="./css/reveal.min.css">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="css/theme/bekk.css" id="theme">
-
-  <!-- For syntax highlighting -->
-  <link rel="stylesheet" href="lib/css/monokai-sublime.css">
-
-  <style type="text/css">
-
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+  <link rel="stylesheet" href="./lib/css/monokai-sublime.css">
+  <style>
+    pre code {
+      background: none;
+    }
   </style>
 </head>
 
@@ -36,12 +36,107 @@
         </aside>
       </section>
 
+      <section>
+
+        <iframe style="height: 350px; width: 350px" src="examples/example1.html"></iframe>
+        
+        <aside class="notes">
+          Hva er det?
+        </aside>
+      </section>
 
       <section>
-        <code>
-          <user-profile model="{id: 5, name: 'Trond', email: 'trond@klakken.com'}" />
-        </code>
+
+        <iframe style="height: 45px; width: 210px; line-height: 45px;" src="examples/example2.html"></iframe>
+        
+        <aside class="notes">
+          Hva er det?
+        </aside>
       </section>
+
+      <section>
+        <h2>Custome Element</h2>
+        <pre>
+        <code>
+&lt;polymer-ui-ratings value="3" count="5" /&gt
+        </code>
+        </pre>
+
+        <aside class="notes">
+          personId="1337"
+        </aside>
+      </section>
+
+      <section>
+        <h2>Definer eget Custom Element</h2>
+
+        <pre>
+<code style="font-size: 130%" data-trim>
+<polymer-element name="polymer-ui-ratings" 
+                 attributes="count value">
+  <template>
+    &lt;!-- template here --&gt;
+  </template>
+  <script>
+    /* scripts here */
+  </script>
+</polymer-element>
+        </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Shadow DOM</h2>
+        <img src="./images/template.png" />
+      </section>
+
+
+      <section>
+        <h2>HTML Imports</h2>
+        <pre>
+        <code style="font-size: 160%; text-align: center">
+&lt;link rel="import" href="polymer-ui-ratings.html" /&gt
+        </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>HTML Templates</h2>
+        <pre>
+        <code>
+&lt;template&gt
+  Navn: &lt;input value="{{navn}}" /&gt;
+&lt;/template&gt;
+        </code>
+        </pre>
+        <p class="fragment">MutationObserver | DOM endringer</p>
+        <p class="fragment">Object.observe() | Model endringer</p>
+
+      </section>
+
+      <section>
+        <h2>HTML Imports</h2>
+        <iframe src="examples/example3.html"></iframe>
+      </section>
+
+      <section>
+        <h2>Fordeler</h2>
+        <ul>
+          <li>modulært, DRY</li>
+          <li>Single Responsibility</li>
+          <li>Mindre namespace colitions i både javascript og CSS</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ulemper</h2>
+        <ul>
+          <li>Fortsatt ungt</li>
+          <li>Ytelse?</li>
+          <li></li>
+        </ul>
+      </section>
+
 
       <section>
         <h2>Takk for meg!</h2>
@@ -52,7 +147,7 @@
   </div>
 
   <script src="./lib/js/head.min.js"></script>
-  <script src="./js/reveal.min.js"></script>
+  <script src="./js/reveal.js"></script>
   <script type="text/javascript" src="./vendor/prefixfree.min.js"></script>
 
   <script>
@@ -62,13 +157,13 @@
       progress: true,
       history: true,
       center: true,
-transition: 'zoom', //Default - None - Fade - Slide - Concave - Zoom
-dependencies: [
-{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; }},
-{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-]
-});
-
+      transition: 'none', //default/cube/page/concave/zoom/linear/fade/none
+      dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; }},
+        { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      ]
+    });
   </script>
   <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 

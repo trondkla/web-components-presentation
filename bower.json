@@ -1,0 +1,20 @@
+{
+  "name": "web-components-presentation",
+  "version": "0.0.0",
+  "homepage": "https://github.com/trondkla/web-components-presentation",
+  "authors": [
+    "Trond Klakken <trondkla@stud.ntnu.no>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.2"
+  }
+}

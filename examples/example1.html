@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- 1. Load platform.js for polyfill support. -->
+    <script src="../bower_components/platform/platform.js"></script>
+
+    <!-- 2. Use an HTML Import to bring in the element. -->
+    <link rel="import" href="../bower_components/polymer-ui-ratings/polymer-ui-ratings.html" />
+
+    <style>
+
+    body {
+    	background: white;
+    }
+    </style>
+  </head>
+  <body unresolved>
+    <!-- 3. Declare the element. Configure using its attributes. -->
+    <div style="text-align: center; width: 300px; margin: auto">
+	    <h2>Star Wars</h2>
+	    <p>
+	    	<img style="width: 120px" src="../images/star-wars.jpg" />
+	    </p>
+
+    	<img style="width: 40px"  src="../images/trond.jpeg" />
+    	<polymer-ui-ratings value="4" count="5" style="position: relative; bottom: 16px"></polymer-ui-ratings>
+    </div>
+  </body>
+</html>

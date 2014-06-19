@@ -1,0 +1,24 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<polymer-element name="bekk-ansatt" attributes="navn">
+  <template>
+  	<style>
+  	 p {
+  	 	color: white;
+  	 }
+  	</style>
+    <p>Navn: {{navn}}</p>
+    <input value="{{navn}}" />
+  </template>
+  <script>
+    Polymer('bekk-ansatt', {
+      navn: "",
+      ready: function() {
+        this.navnChanged();
+      },
+      navnChanged: function() {
+        console.log(this.navn)
+      }
+    });
+  </script>
+</polymer-element>
