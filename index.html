@@ -17,6 +17,10 @@
       background: none;
     }
   </style>
+
+  <script>
+  Polymer = function(){};
+  </script>
 </head>
 
 <body>
@@ -41,100 +45,195 @@
         <iframe style="height: 350px; width: 350px" src="examples/example1.html"></iframe>
         
         <aside class="notes">
-          Hva er det?
-        </aside>
-      </section>
-
-      <section>
-
-        <iframe style="height: 45px; width: 210px; line-height: 45px;" src="examples/example2.html"></iframe>
-        
-        <aside class="notes">
-          Hva er det?
+          <ul>
+            <li>Eget backbone view og model?</li>
+            <li>Javascript som søker igjennom DOM etter #star ved hvert ajax request</li>
+            <li>Last inn hele angular?!</li>
+            <li></li>
+            <li></li>
+          </ul>
         </aside>
       </section>
 
       <section>
         <h2>Custome Element</h2>
+
         <pre>
         <code>
 &lt;polymer-ui-ratings value="3" count="5" /&gt
         </code>
         </pre>
 
+        <iframe style="height: 45px; width: 210px; line-height: 45px;" src="examples/example2.html"></iframe>
+
+
         <aside class="notes">
-          personId="1337"
+          <ul>
+            <li>Egne tag-er</li>
+            <li>Forbedre API til eksisterende tag-er</li>
+            <li>Bedre semantikk, ikke div div</li>
+            <li>personId="1337"</li>
+            <li>Implementasjon ikke helt bestemt</li>
+          </ul>
+
         </aside>
+      </section>
+
+      <section>
+        <h2>Polymer Project</h2>
+
+        <div style="margin: 1em;">
+
+          <img style="background: none; border: none;" src="images/p-logo.svg" />
+        </div>
+
+        <ul>
+          <li>Polyfill</li>
+          <li>Utviklet av Google</li>
+        </ul>
+
+      </section>
+
+      <section>
+        <iframe style="width: 50%; height: 500px" src="examples/example3.html"></iframe>
       </section>
 
       <section>
         <h2>Definer eget Custom Element</h2>
 
         <pre>
-<code style="font-size: 130%" data-trim>
-<polymer-element name="polymer-ui-ratings" 
-                 attributes="count value">
+<code style="font-size: 130%; max-height: 600px" data-trim>
+<polymer-element name="demo-overskrift" attributes="overskrift">
   <template>
-    &lt;!-- template here --&gt;
+    <style> ... </style>
+    <h1>{{overskrift}}</h1>
+    <input value="{{overskrift}}" />
   </template>
   <script>
-    /* scripts here */
+    Polymer('demo-overskrift', {
+      overskrift: "",
+      overskriftChanged: function() {
+        console.log(this.overskrift)
+      }
+    });
   </script>
 </polymer-element>
         </code>
         </pre>
-      </section>
 
-      <section>
-        <h2>Shadow DOM</h2>
-        <img src="./images/template.png" />
-      </section>
-
-
-      <section>
-        <h2>HTML Imports</h2>
-        <pre>
-        <code style="font-size: 160%; text-align: center">
-&lt;link rel="import" href="polymer-ui-ratings.html" /&gt
-        </code>
-        </pre>
+        <aside class="notes">
+          <ul>
+            <li>Delt opp templates og javascript, men sammen</li>
+            <li>Javascript skal være kort og enkelt, ikke store libraries</li>
+          </ul>
+        </aside>
       </section>
 
       <section>
         <h2>HTML Templates</h2>
         <pre>
         <code>
-&lt;template&gt
-  Navn: &lt;input value="{{navn}}" /&gt;
-&lt;/template&gt;
+<template>
+  Navn: <input value="{{navn}}" />
+</template>
         </code>
         </pre>
-        <p class="fragment">MutationObserver | DOM endringer</p>
-        <p class="fragment">Object.observe() | Model endringer</p>
+        <div class="fragment">
+          <p>MutationObserver | DOM endringer</p>
+          <p>Object.observe() | Model endringer</p>
+        </div>
 
       </section>
 
       <section>
         <h2>HTML Imports</h2>
-        <iframe src="examples/example3.html"></iframe>
+        <pre>
+        <code style="font-size: 160%; text-align: center">
+&lt;link rel="import" href="demo-overskrift.html" /&gt
+        </code>
+        </pre>
+
+        <aside class="notes">
+          <p> Hvordan laster jeg denne for å bruke den?</p>
+        </aside>
+      </section>
+
+      <section>
+
+        <h2>Shadow DOOM</h2>
+        <img style="border: none" src="images/Gandalf_confronts_balrog.jpg" />
+        <aside class="notes">
+          <p>Oops en O for mye</p>
+        </aside>
+      </section>
+
+      <section>
+        <h2>Shadow DOM</h2>
+        <img src="./images/template.png" />
+
+        <aside class="notes">
+          <ul>
+            <li>Egen DOM inni DOMen</li>
+            <li>Hindrer name-space kollisjoner i Javascript og CSS</li>
+            <li>Legg merke til id, id. Ligger egentlig i template over</li>
+          </ul>
+
+        </aside>
+      </section>
+
+
+      <section>
+        <h2>Shadow DOM</h2>
+        <pre style="width: 100%; font-size: 45%">
+        <code style="max-height: 500px;">
+<template>
+  <link rel="stylesheet" href="polymer-ui-ratings.css">
+  <template repeat="{{star in stars}}">
+    <span id="star" />
+    </span>
+  </template>
+</template>
+        </code>
+        </pre>
+
+        <aside class="notes">
+          <ul>
+            <li>Egen DOM inni DOMen</li>
+            <li>Hindrer name-space kollisjoner i Javascript og CSS</li>
+            <li>Legg merke til id, id. Ligger egentlig i template over</li>
+          </ul>
+
+        </aside>
       </section>
 
       <section>
         <h2>Fordeler</h2>
         <ul>
-          <li>modulært, DRY</li>
-          <li>Single Responsibility</li>
-          <li>Mindre namespace colitions i både javascript og CSS</li>
+          <li>Nativ browser-støtte</li>
+          <li class="fragment">Single Responsibility</li>
+          <li class="fragment">Mindre namespace kollisjoner</li>
+          <li class="fragment">Modulært, DRY</li>
         </ul>
+
+        <aside class="notes">
+          <p>Mindre kollisjoner i Javascript og CSS</p>
+          <p>Trenger bare å tenke på sin egen DOM, JS og CSS</p>
+        </aside>
       </section>
+
 
       <section>
         <h2>Ulemper</h2>
         <ul>
           <li>Fortsatt ungt</li>
-          <li>Ytelse?</li>
-          <li></li>
+          <li class="fragment">Ytelse?</li>
+          <li class="fragment">Nativ browser-støtte ikke enda fullt på plass<br /> Men man har Polymer!</li>
         </ul>
+      </section>
+
+      <section>
+        <img src="images/support.png" />
+
       </section>
 
 

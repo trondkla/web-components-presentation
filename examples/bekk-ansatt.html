@@ -3,12 +3,37 @@
 <polymer-element name="bekk-ansatt" attributes="navn">
   <template>
   	<style>
-  	 p {
-  	 	color: white;
+    h1 {
+      margin: auto;
+      text-align: center;
+      color: white;
+
+      margin: 0 0 20px 0;
+      color: #eeeeee;
+      font-family: Georgia, sans-serif;
+      line-height: 1.2em;
+      letter-spacing: 0em;
+      text-transform: none;
+      text-shadow: none;
+      font-size: 4.11em;
+      font-weight: normal;
+    }
+    input {
+  	 	font-size: 100%;
+      width: 400px;
+      margin: auto;
   	 }
+
+     div {
+      text-align: center;
+     }
   	</style>
-    <p>Navn: {{navn}}</p>
-    <input value="{{navn}}" />
+
+    <div>
+      <h1>{{navn}}</h1>
+      <input value="{{navn}}" />
+
+    </div>
   </template>
   <script>
     Polymer('bekk-ansatt', {
